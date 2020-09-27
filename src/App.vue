@@ -3,8 +3,10 @@
     <Header 
     :message="name"
     />
-    <Image />
-    <button>Next</button>
+    <Image
+      :src="src"
+     />
+    <button v-on:click="change()">Next</button>
   </div>
 </template>
 
@@ -16,11 +18,20 @@ export default {
   name:"app",
   components:{
     Header,
-    Image
+    Image,
   },
   data(){
     return{
-      name:"Saurabh"
+      name:"Saurabh",
+      src:"https://picsum.photos/360/361"
+    }
+  },
+  methods:{
+    change: function(){
+      // var one = ["https://picsum.photos/360/361","https://picsum.photos/360/360"]
+      var i = Math.floor(Math.random() * 10)
+      this.src= "https://picsum.photos/360/36"+String(i)
+      return this.src
     }
   }
 }

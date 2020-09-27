@@ -1,11 +1,13 @@
 <template>
     <div class="img">
-        <img src="https://picsum.photos/360">
+        <img :src="src">
     </div>
 </template>
 <script>
 export default {
-    props:{}
+    props:[
+        'src'
+    ]
 }
 </script>
 <style>
