@@ -1,8 +1,9 @@
 <template>
   <div class="img">
-    <div v-for="item in srci" :key="item">
-        <img :src="item" style="margin:10px;border-radius: 0px;" v-if="srci.indexOf(item)==1">
-        <img :src="item" style="margin:10px;opacity:0.5;" v-else :class="isbig">
+    <div v-for="item in srci" :key="item" class="new">
+        <img :src="item" style="border-radius: 10px;" v-if="srci.indexOf(item)==1">
+        <img :src="item" style="opacity:0.5;" v-if="srci.indexOf(item)==0||srci.indexOf(item)==2" :class="isbig">
+        <div v-else style="width:0%"></div>
     </div>
   </div>
 </template>
@@ -14,12 +15,18 @@ export default {
 <style>
 .img {
   margin-top: 15px;
-  vertical-align: auto;
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   flex-wrap: wrap;
+  width: 100%;
 }
 img {
-  border-radius: 15px;
+  border-radius: 30%;
   max-height: 360px;
+  width: 100%;
+}
+.new{
+    width: 30%;
 }
 </style>

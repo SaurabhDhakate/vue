@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header :message="name" />
-    <Image :srci="src" /><br>
+    <Image :srci="src.slice(0, 3)" /><br />
     <div class="btns">
       <div class="switch" v-on:click="changep()"><h3>Prev</h3></div>
       <div class="switch" v-on:click="changen()"><h3>Next</h3></div>
@@ -26,17 +26,20 @@ export default {
         "https://picsum.photos/360/361",
         "https://picsum.photos/360/360",
         "https://picsum.photos/360/359",
+        "https://picsum.photos/360/362",
+        "https://picsum.photos/360/357",
+        "https://picsum.photos/360/358"
       ],
     };
   },
   methods: {
     changen: function () {
       let arr = [...this.src];
-      let pic1 = arr[2];
+      let len = arr.length-1
+      let pic1 = arr[len];
       arr.pop();
       arr.unshift(pic1);
       this.src = arr;
-
       return this.src;
     },
     changep: function () {
@@ -45,10 +48,16 @@ export default {
       arr.shift();
       arr.push(pic1);
       this.src = arr;
-
       return this.src;
     },
-  },
+    
+    },
+    mounted(){
+      setInterval(() => {
+        this.changen()
+      }, 7000);
+    }
+  
 };
 </script>
 
@@ -84,7 +93,7 @@ template {
   width: 100%;
   background: black;
 }
-.btns{
-  display:inline-flex;
+.btns {
+  display: inline-flex;
 }
 </style>
