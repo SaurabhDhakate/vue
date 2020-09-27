@@ -1,39 +1,55 @@
 <template>
   <div id="app">
-    <Header 
-    :message="name"
-    />
-    <Image
-      :src="src"
-     />
-    <div class="switch" v-on:click="change()"><h3>Next</h3></div>
+    <Header :message="name" />
+    <Image :srci="src" /><br>
+    <div class="btns">
+      <div class="switch" v-on:click="changep()"><h3>Prev</h3></div>
+      <div class="switch" v-on:click="changen()"><h3>Next</h3></div>
+    </div>
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue"
-import Image from "./components/Image.vue"
+import Header from "./components/Header.vue";
+import Image from "./components/Image.vue";
 
 export default {
-  name:"app",
-  components:{
+  name: "app",
+  components: {
     Header,
     Image,
   },
-  data(){
-    return{
-      name:"Saurabh",
-      src:"https://picsum.photos/360/361"
-    }
+  data() {
+    return {
+      name: "Saurabh",
+      src: [
+        "https://picsum.photos/360/361",
+        "https://picsum.photos/360/360",
+        "https://picsum.photos/360/359",
+      ],
+    };
   },
-  methods:{
-    change: function(){
-      var i = Math.floor(Math.random() * 10)
-      this.src= "https://picsum.photos/360/36"+String(i)
-      return this.src
-    }
-  }
-}
+  methods: {
+    changen: function () {
+      let arr = [...this.src];
+      let pic1 = arr[2];
+      arr.pop();
+      arr.unshift(pic1);
+      this.src = arr;
+
+      return this.src;
+    },
+    changep: function () {
+      let arr = [...this.src];
+      let pic1 = arr[0];
+      arr.shift();
+      arr.push(pic1);
+      this.src = arr;
+
+      return this.src;
+    },
+  },
+};
 </script>
 
 <style>
@@ -44,29 +60,31 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-.app{
+.app {
   background: black;
 }
-.switch{
+.switch {
   background: aquamarine;
   padding: 1px;
   width: 100px;
-  margin: auto;
+  margin: 10px;
   margin-top: 20px;
-  border-radius: 10px ;
+  border-radius: 10px;
   cursor: pointer;
 }
-template{
-  background:black;
-  
+template {
+  background: black;
 }
 /* body{
   background: black;
 } */
 </style>
 <style scoped>
-template{
+template {
   width: 100%;
   background: black;
+}
+.btns{
+  display:inline-flex;
 }
 </style>
