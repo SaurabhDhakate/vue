@@ -1,7 +1,7 @@
 <template>
   <div class="img">
     <div v-for="item in srci" :key="item" class="new">
-        <img :src="item" style="border-radius: 10px;" v-if="srci.indexOf(item)==1">
+        <img :src="item" style="border-radius: 10px;flex-grow:1.5" v-if="srci.indexOf(item)==1">
         <img :src="item" style="opacity:0.5;" v-if="srci.indexOf(item)==0||srci.indexOf(item)==2" :class="isbig">
         <div v-else style="width:0%"></div>
     </div>
