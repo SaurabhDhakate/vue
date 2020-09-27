@@ -6,7 +6,7 @@
     <Image
       :src="src"
      />
-    <button v-on:click="change()">Next</button>
+    <div class="switch" v-on:click="change()"><h3>Next</h3></div>
   </div>
 </template>
 
@@ -28,7 +28,6 @@ export default {
   },
   methods:{
     change: function(){
-      // var one = ["https://picsum.photos/360/361","https://picsum.photos/360/360"]
       var i = Math.floor(Math.random() * 10)
       this.src= "https://picsum.photos/360/36"+String(i)
       return this.src
@@ -44,5 +43,30 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.app{
+  background: black;
+}
+.switch{
+  background: aquamarine;
+  padding: 1px;
+  width: 100px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 10px ;
+  cursor: pointer;
+}
+template{
+  background:black;
+  
+}
+/* body{
+  background: black;
+} */
+</style>
+<style scoped>
+template{
+  width: 100%;
+  background: black;
 }
 </style>
