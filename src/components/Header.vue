@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <h1>Hi there ! I am a {{ message }}</h1>
+    <h1>Hi there ! I am {{ message }}</h1>
   </div>
 </template>
 <script>
