@@ -4,6 +4,7 @@
     :message="name"
     />
     <Image />
+    <button>Next</button>
   </div>
 </template>
 
